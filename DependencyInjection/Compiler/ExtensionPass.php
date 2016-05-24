@@ -21,7 +21,7 @@ class ExtensionPass implements CompilerPassInterface
                 foreach ($tags as $tag) {
                     $type = trim($tag['type'], '%');
                     $definition->addMethodCall('addTypeExtension', [
-                        $container->hasParameter($type) ?: $container->getParameter($type),
+                        $container->hasParameter($type) ? $container->getParameter($type) : $type,
                         new Reference($id),
                         isset($tag['priority']) ? $tag['priority'] : 0,
                     ]);
