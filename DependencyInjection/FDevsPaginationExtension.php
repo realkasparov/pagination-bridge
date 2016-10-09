@@ -14,9 +14,14 @@ class FDevsPaginationExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        //        $config = $this->processConfiguration(new Configuration(), $configs);
+        $config = $this->processConfiguration(new Configuration(), $configs);
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
+        $container->setParameter($this->getAlias().'.default_pagination_class', $config['pagination_class']);
+
+        foreach ($config['type_list'] as $type) {
+            $loader->load(sprintf('type/%s.xml', $type));
+        }
         $loader->load('services.xml');
     }
 }

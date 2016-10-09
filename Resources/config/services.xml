@@ -5,78 +5,14 @@
 
     <parameters>
         <parameter key="f_devs_pagination.paginator.class">FDevs\Pagination\Paginator</parameter>
-        <parameter key="f_devs_pagination.extension.array_type.count.class">FDevs\Pagination\Extension\ArrayType\CountExtension</parameter>
-        <parameter key="f_devs_pagination.extension.array_type.limit.class">FDevs\Pagination\Extension\ArrayType\LimitExtension</parameter>
-        <parameter key="f_devs_pagination.extension.array_type.offset.class">FDevs\Pagination\Extension\ArrayType\OffsetExtension</parameter>
-        <parameter key="f_devs_pagination.extension.array_type.page.class">FDevs\Pagination\Extension\ArrayType\PageExtension</parameter>
-        <parameter key="f_devs_pagination.extension.doctrine.mongodb.limit.class">FDevs\Pagination\Extension\Doctrine\MongoDB\LimitExtension</parameter>
-        <parameter key="f_devs_pagination.extension.doctrine.mongodb.offset.class">FDevs\Pagination\Extension\Doctrine\MongoDB\OffsetExtension</parameter>
-        <parameter key="f_devs_pagination.extension.doctrine.mongodb.page.class">FDevs\Pagination\Extension\Doctrine\MongoDB\PageExtension</parameter>
-        <parameter key="f_devs_pagination.extension.doctrine.orm.limit.class">FDevs\Pagination\Extension\Doctrine\ORM\LimitExtension</parameter>
-        <parameter key="f_devs_pagination.extension.doctrine.orm.offset.class">FDevs\Pagination\Extension\Doctrine\ORM\OffsetExtension</parameter>
-        <parameter key="f_devs_pagination.extension.doctrine.orm.page.class">FDevs\Pagination\Extension\Doctrine\ORM\PageExtension</parameter>
-        <parameter key="f_devs_pagination.extension.doctrine.orm.count.class">FDevs\Pagination\Extension\Doctrine\ORM\CountExtension</parameter>
-        <parameter key="f_devs_pagination.type.array_type.class">FDevs\Pagination\Type\ArrayType</parameter>
-        <parameter key="f_devs_pagination.type.doctrine.mongodb.query_builder.class">FDevs\Pagination\Type\Doctrine\MongoDB\QueryBuilderType</parameter>
-        <parameter key="f_devs_pagination.type.doctrine.mongodb.query.class">FDevs\Pagination\Type\Doctrine\MongoDB\QueryType</parameter>
-        <parameter key="f_devs_pagination.type.doctrine.orm.paginator.class">FDevs\Pagination\Type\Doctrine\ORM\PaginatorType</parameter>
-        <parameter key="f_devs_pagination.type.doctrine.orm.query_builder.class">FDevs\Pagination\Type\Doctrine\ORM\QueryBuilderType</parameter>
-        <parameter key="f_devs_pagination.type.doctrine.orm.query.class">FDevs\Pagination\Type\Doctrine\ORM\QueryType</parameter>
     </parameters>
 
     <services>
-
-        <service id="f_devs_pagination.paginator" class="%f_devs_pagination.paginator.class%"/>
-
-        <!--extension-->
-        <service id="f_devs_pagination.extension.array_type.count" class="%f_devs_pagination.extension.array_type.count.class%">
-            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.array_type.class%" priority="0"/>
+        <service id="f_devs_pagination.paginator" class="%f_devs_pagination.paginator.class%">
+            <argument type="collection"/>
+            <argument type="service" on-invalid="null"/>
+            <argument type="string">%f_devs_pagination.default_pagination_class%</argument>
         </service>
-
-        <service id="f_devs_pagination.extension.array_type.page" class="%f_devs_pagination.extension.array_type.page.class%">
-            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.array_type.class%" priority="1"/>
-        </service>
-
-        <service id="f_devs_pagination.extension.doctrine.mongodb.page" class="%f_devs_pagination.extension.doctrine.mongodb.page.class%">
-            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.mongodb.query.class%" priority="1"/>
-            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.mongodb.query_builder.class%" priority="1"/>
-        </service>
-
-        <service id="f_devs_pagination.extension.doctrine.orm.page" class="%f_devs_pagination.extension.doctrine.orm.page.class%">
-            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.orm.query.class%" priority="1"/>
-            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.orm.query_builder.class%" priority="1"/>
-        </service>
-
-        <service id="f_devs_pagination.extension.doctrine.orm.count" class="%f_devs_pagination.extension.doctrine.orm.count.class%">
-            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.orm.query.class%" priority="1"/>
-            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.orm.query_builder.class%" priority="1"/>
-        </service>
-
-        <!--type-->
-        <service id="f_devs_pagination.type.array_type" class="%f_devs_pagination.type.array_type.class%">
-            <tag name="f_devs_pagination.type"/>
-        </service>
-
-        <service id="f_devs_pagination.type.doctrine.mongodb.query_builder" class="%f_devs_pagination.type.doctrine.mongodb.query_builder.class%">
-            <tag name="f_devs_pagination.type"/>
-        </service>
-
-        <service id="f_devs_pagination.type.doctrine.mongodb.query" class="%f_devs_pagination.type.doctrine.mongodb.query.class%">
-            <tag name="f_devs_pagination.type"/>
-        </service>
-
-        <service id="f_devs_pagination.type.doctrine.orm.paginator" class="%f_devs_pagination.type.doctrine.orm.paginator.class%">
-            <tag name="f_devs_pagination.type"/>
-        </service>
-
-        <service id="f_devs_pagination.type.doctrine.orm.query_builder" class="%f_devs_pagination.type.doctrine.orm.query_builder.class%">
-            <tag name="f_devs_pagination.type"/>
-        </service>
-
-        <service id="f_devs_pagination.type.doctrine.orm.query" class="%f_devs_pagination.type.doctrine.orm.query.class%">
-            <tag name="f_devs_pagination.type"/>
-        </service>
-
     </services>
 
 </container>

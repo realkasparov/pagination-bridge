@@ -33,6 +33,19 @@ public function registerBundles()
 #### default configuration
 
 ```yml
+f_devs_pagination:
+
+    # set default pagination class MUST implement "FDevs\Pagination\Model\PaginationInterface".
+    pagination_class:     FDevs\Pagination\Model\Pagination
+
+    # Select the types, allowed "array,doctrine_mongodb,doctrine_orm".
+    type_list:
+
+        # Defaults:
+        - array
+        - doctrine_mongodb
+        - doctrine_orm
+
 ```
 
 ## Usage with [The DependencyInjection Component ](http://symfony.com/doc/current/components/dependency_injection/introduction.html)
