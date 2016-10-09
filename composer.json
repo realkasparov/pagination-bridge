@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "fdevs/pagination": "dev-master",
+        "fdevs/pagination": "~0.1",
         "php": ">=5.4"
     },
     "require-dev": {
