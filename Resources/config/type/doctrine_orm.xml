@@ -8,6 +8,7 @@
         <parameter key="f_devs_pagination.extension.doctrine.orm.offset.class">FDevs\Pagination\Extension\Doctrine\ORM\OffsetExtension</parameter>
         <parameter key="f_devs_pagination.extension.doctrine.orm.page.class">FDevs\Pagination\Extension\Doctrine\ORM\PageExtension</parameter>
         <parameter key="f_devs_pagination.extension.doctrine.orm.count.class">FDevs\Pagination\Extension\Doctrine\ORM\CountExtension</parameter>
+        <parameter key="f_devs_pagination.extension.doctrine.orm.sort.class">FDevs\Pagination\Extension\Doctrine\ORM\SortExtension</parameter>
         <parameter key="f_devs_pagination.type.doctrine.orm.paginator.class">FDevs\Pagination\Type\Doctrine\ORM\PaginatorType</parameter>
         <parameter key="f_devs_pagination.type.doctrine.orm.query_builder.class">FDevs\Pagination\Type\Doctrine\ORM\QueryBuilderType</parameter>
         <parameter key="f_devs_pagination.type.doctrine.orm.query.class">FDevs\Pagination\Type\Doctrine\ORM\QueryType</parameter>
@@ -22,6 +23,11 @@
         </service>
 
         <service id="f_devs_pagination.extension.doctrine.orm.count" class="%f_devs_pagination.extension.doctrine.orm.count.class%">
+            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.orm.query.class%" priority="1"/>
+            <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.orm.query_builder.class%" priority="1"/>
+        </service>
+
+        <service id="f_devs_pagination.extension.doctrine.orm.sort" class="%f_devs_pagination.extension.doctrine.orm.sort.class%">
             <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.orm.query.class%" priority="1"/>
             <tag name="f_devs_pagination.extension" type="%f_devs_pagination.type.doctrine.orm.query_builder.class%" priority="1"/>
         </service>
