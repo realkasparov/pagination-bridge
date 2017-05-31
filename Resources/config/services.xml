@@ -5,12 +5,15 @@
 
     <parameters>
         <parameter key="f_devs_pagination.paginator.class">FDevs\Pagination\Paginator</parameter>
+        <parameter key="f_devs_pagination.extension_registry.class">FDevs\Pagination\ExtensionRegistry</parameter>
     </parameters>
 
     <services>
+        <service id="f_devs_pagination.paginator.extension_registry" class="%f_devs_pagination.extension_registry.class%"/>
+
         <service id="f_devs_pagination.paginator" class="%f_devs_pagination.paginator.class%">
             <argument type="collection"/>
-            <argument type="service" on-invalid="null"/>
+            <argument type="service" id="f_devs_pagination.paginator.extension_registry" on-invalid="null"/>
             <argument type="string">%f_devs_pagination.default_pagination_class%</argument>
         </service>
     </services>
