@@ -14,8 +14,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('f_devs_pagination');
+        $treeBuilder = new TreeBuilder('f_devs_pagination');
+        $rootNode = $treeBuilder->getRootNode();
+
         $allowedTypes = ['array', 'doctrine_mongodb', 'doctrine_orm'];
         $rootNode
             ->children()
