@@ -1,13 +1,12 @@
 {
-    "name": "fdevs/pagination-bridge",
+    "name": "realkasparov/pagination-bridge",
     "description": "pagination with Symfony 2 bridge.",
     "keywords": ["page","paging", "paginator", "pagination"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Andrey Samusev",
-            "email": "andrey_simfi@list.ru",
-            "homepage": "http://andrey.4devs.io"
+            "name": "Aleksandr Novikov",
+            "email": "alexander1243@yandex.ru"
         },
         {
             "name": "4devs Community",
