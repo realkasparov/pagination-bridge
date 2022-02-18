@@ -1,5 +1,8 @@
 {
     "name": "realkasparov/pagination-bridge",
+    "type": "library",
+
+
     "description": "pagination with Symfony 2 bridge.",
     "keywords": ["page","paging", "paginator", "pagination"],
     "license": "MIT",
